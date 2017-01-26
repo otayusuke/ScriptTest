@@ -5,15 +5,10 @@ using UnityEngine;
 public class Boss
 {
     public int mp = 53;
-    public void Magic()
+    public void Magic(int i)
     {
-        for(int i = 5; i<this.mp; i=5)
-        {
             this.mp -= i;
-            Debug.Log("魔法攻撃をした。残りMPは" + this.mp);
-            if (this.mp < 5)
-            { Debug.Log("MPが足りないため魔法が使えない。"); }
-        }
+            Debug.Log("魔法攻撃をした。残りMPは" + this.mp);       
     }
 }
 
@@ -23,16 +18,25 @@ public class NewBehaviourScript : MonoBehaviour {
 	void Start ()
     {
         Boss Mboss = new Boss();
-        Mboss.Magic();
-
+        for (int m=0;m<=10;m++)
+        {
+            if (m < 10)
+            {
+                Mboss.Magic(5);
+            }
+            else
+            {
+                Debug.Log("MPが足りないため魔法が使えない");
+            }
+        }
         int[] array = { 10, 20, 30, 40, 50 };
         foreach (int n in array)
         {
             Debug.Log(n);
         }
-        for(int i = 4; i >= 0; i--)
+        for(int m = 4; m >= 0; m--)
         {
-            Debug.Log(array[i]);
+            Debug.Log(array[m]);
         }
 
     }
